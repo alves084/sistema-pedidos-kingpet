@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Produtos King Pet</title>
+    <link rel="stylesheet" href="assets-produtos/css/podrutos.css" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Hepta+Slab:400,700|Lato:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="models">
+        <div class="pizza-item">
+            <a href="">
+                <div class="pizza-item--img"><img src="" /></div>
+                <div class="pizza-item--add">+</div>
+            </a>
+            <div class="pizza-item--price">R$ --</div>
+            <div class="pizza-item--name">--</div>
+            <div class="pizza-item--desc">--</div>
+        </div>
+        <div class="cart--item">
+            <img src="" />
+            <div class="cart--item-nome">--</div>
+            <div class="cart--item--qtarea">
+                <button class="cart--item-qtmenos">-</button>
+                <div class="cart--item--qt">1</div>
+                <button class="cart--item-qtmais">+</button>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="logo" style="text-align: center;"><a href="index.html"><img src="assets/images/logo_branca.png" alt="" width="220px" height="100px"></a></div>
+        <div class="menu-openner"><span>0</span>🛒</div>
+    </header>
+    <main>
+        <h1></h1>
+        <div class="pizza-area"></div>
+    </main>
+    <aside>
+        <div class="cart--area">
+            <div class="menu-closer">❌</div>
+            <h1>Seus Pedidos</h1>
+            <div class="cart"></div>
+            <div class="cart--details">
+                <div class="cart--totalitem subtotal">
+                    <span>Subtotal</span>
+                    <span>R$ --</span>
+                </div>
+                <div class="cart--totalitem total big">
+                    <span>Total</span>
+                    <span>R$ --</span>
+                </div>
+
+                <input type="text" id="nomeCliente" placeholder="Seu nome">
+                <input type="text" id="telefoneCliente" placeholder="Seu WhatsApp" maxlength="15">
+
+                <div class="cart--finalizar" id="finalizarPedido">Finalizar a compra</div>
+            </div>
+        </div>
+    </aside>
+    <div class="pizzaWindowArea">
+        <div class="pizzaWindowBody">
+            <div class="pizzaInfo--cancelMobileButton">Voltar</div>
+            <div class="pizzaBig">
+                <img src="" />
+            </div>
+            <div class="pizzaInfo">
+                <h1>--</h1>
+                <div class="pizzaInfo--desc">--</div>
+                <div class="pizzaInfo--sizearea">
+                    <div class="pizzaInfo--sector">Tamanho</div>
+                    <div class="pizzaInfo--sizes"></div>
+                </div>
+                <div class="pizzaInfo--pricearea">
+                    <div class="pizzaInfo--sector">Preço</div>
+                    <div class="pizzaInfo--price">
+                        <div class="pizzaInfo--actualPrice">R$ --</div>
+                        <div class="pizzaInfo--qtarea">
+                            <button class="pizzaInfo--qtmenos">-</button>
+                            <input type="number" class="pizzaInfo--qt" value="1" min="1">
+                            <button class="pizzaInfo--qtmais">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="pizzaInfo--addButton">Adicionar ao carrinho</div>
+                <div class="pizzaInfo--cancelButton">Cancelar</div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="assets-produtos/js/caminhas.js"></script>
+    <script type="text/javascript" src="assets-produtos/js/produtos.js"></script>
+    <script src="assets-produtos/js/checkout.js"></script>
+    <script>
+        const telefone = document.getElementById('telefoneCliente');
+
+        telefone.addEventListener('input', () => {
+        let valor = telefone.value.replace(/\D/g, '').slice(0, 11);
+
+        if (valor.length > 10) {
+            // Celular: (99) 99999-9999
+            valor = valor.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+        } else if (valor.length > 2) {
+            valor = valor.replace(/^(\d{2})(\d{0,5})$/, '($1) $2');
+        } else {
+            valor = valor.replace(/^(\d*)$/, '($1');
+        }
+
+        telefone.value = valor;
+        });
+    </script>
+</body>
+</html>
